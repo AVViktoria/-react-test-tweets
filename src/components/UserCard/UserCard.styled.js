@@ -9,13 +9,16 @@ export const CardHeader = styled.div`
 export const Logo = styled.img`
   // color: grey;
 `;
-export const Decoration = styled.img`
+export const Decoration = styled.div`
+  // color: grey;
+`;
+export const ImgDecor = styled.img`
   // color: grey;
 `;
 export const CardAvatar = styled.div`
   // color: grey;
 `;
-export const Avatar = styled.img`
+export const ImgAvatar = styled.img`
   // color: grey;
 `;
 export const UserInfo = styled.ul`
