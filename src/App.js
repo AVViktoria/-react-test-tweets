@@ -1,17 +1,11 @@
-import user from "./data/user.json";
+// import users from "./data/users.json";
 
 import { UserCard } from "../src/components/UserCard/UserCard";
 function App() {
   return (
     <>
       <div>
-        <UserCard
-          user={user.name}
-          tweets={user.tweets}
-          followers={user.followers}
-          avatar={user.avatar}
-          id={user.id}
-        />
+        <UserCard />
       </div>
     </>
   );

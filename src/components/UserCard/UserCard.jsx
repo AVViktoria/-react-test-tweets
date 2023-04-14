@@ -6,19 +6,19 @@ import {
   CardContainer,
   CardHeader,
   Logo,
-  Decoration,
-  ImgDecor, 
+  CardDecor,
+  ImgDecor,
+  CardMain,
   CardAvatar,
   ImgAvatar,
   UserInfo,
-  Tweets,
-  Followers,
+  UserText,
 } from "../UserCard/UserCard.styled";
 
 //    images
 import logo from "../../images/logo.svg";
 import headerDecor from "../../images/headerDecor.png";
-import avatar from "../../images/avatar.svg"
+import avatar from "../../images/avatar.svg";
 
 export const UserCard = ({ user, onClick }) => {
   return (
@@ -26,18 +26,20 @@ export const UserCard = ({ user, onClick }) => {
       <CardContainer>
         <CardHeader>
           <Logo src={logo} alt="Logo GOIT" />
-          <Decoration>
-            <ImgDecor src={headerDecor} alt = "check mark and question mark"/>
-          </Decoration>
+          <CardDecor>
+            <ImgDecor src={headerDecor} alt="check mark and question mark" />
+          </CardDecor>
         </CardHeader>
-        <CardAvatar>
-          <ImgAvatar src={avatar} alt = "avatar image"/>
-        </CardAvatar>
-        <UserInfo>
-          <Tweets> TWEETS</Tweets>
-          <Followers> FOLLOWERS</Followers>
-        </UserInfo>
-        <Button user={user} onClick={onClick} />
+        <CardMain>
+          <CardAvatar>
+            <ImgAvatar src={avatar} alt="avatar image" />
+          </CardAvatar>
+          <UserInfo>
+            <UserText> TWEETS</UserText>
+            <UserText> FOLLOWERS</UserText>
+          </UserInfo>
+          <Button user={user} onClick={onClick} />
+        </CardMain>
       </CardContainer>
     </>
   );
