@@ -1,10 +1,12 @@
 import styled from "styled-components";
 
-export const ButtonFollow = styled.button`
+export const LoadBtn = styled.button`
   display: block;
-  margin: 0 auto;
+  margin-right: auto;
+  margin-left: auto;
+  margin-bottom: 20px;
   min-width: 196px;
-  padding: 14px 56px;
+  padding: 12px 40px;
   font-family: "Montserrat";
   font-style: normal;
   font-weight: 600;
@@ -12,7 +14,7 @@ export const ButtonFollow = styled.button`
   line-height: 22px;
   text-transform: uppercase;
   color: #373737;
-  background: #ebd8ff;
+  background-color: rgb(194 204 229);
   box-shadow: 0px 3.43693px 3.43693px rgba(0, 0, 0, 0.25);
   border-radius: 10.3108px;
   cursor: pointer;

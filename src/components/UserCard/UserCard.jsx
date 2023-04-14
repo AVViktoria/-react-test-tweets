@@ -35,7 +35,7 @@ export const UserCard = ({ user, onClick }) => {
             <ImgAvatar src={user.avatar} alt="avatar image" />
           </CardAvatar>
           <UserInfo>
-            <UserText> { user.tweets}TWEETS</UserText>
+            <UserText> { user.tweets} TWEETS</UserText>
             <UserText>{ user.followers} FOLLOWERS</UserText>
           </UserInfo>
           <Button user={user} onClick={onClick} />
