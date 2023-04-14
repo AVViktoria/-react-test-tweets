@@ -18,7 +18,7 @@ import {
 //    images
 import logo from "../../images/logo.svg";
 import headerDecor from "../../images/headerDecor.png";
-import avatar from "../../images/avatar.svg";
+// import avatar from "../../images/avatar.svg";
 
 export const UserCard = ({ user, onClick }) => {
   return (
@@ -32,11 +32,11 @@ export const UserCard = ({ user, onClick }) => {
         </CardHeader>
         <CardMain>
           <CardAvatar>
-            <ImgAvatar src={avatar} alt="avatar image" />
+            <ImgAvatar src={user.avatar} alt="avatar image" />
           </CardAvatar>
           <UserInfo>
-            <UserText> TWEETS</UserText>
-            <UserText> FOLLOWERS</UserText>
+            <UserText> { user.tweets}TWEETS</UserText>
+            <UserText>{ user.followers} FOLLOWERS</UserText>
           </UserInfo>
           <Button user={user} onClick={onClick} />
         </CardMain>
