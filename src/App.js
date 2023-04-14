@@ -1,13 +1,13 @@
 import { React, Component } from "react";
-import cards from "./data/users.json";
-// import fetchUsers from "./services/user-api";
+// import cards from "./data/users.json";
+import fetchUsers from "./services/user-api";
 import { UserList } from "./components/UserList/UserList.jsx";
 import { Loader } from "./components/Loader/Loader.jsx";
 import { LoadMoreBtn } from "./components/LoadMoreBtn/LoadMoreBtn.jsx";
 
 export class App extends Component {
   state = {
-    users: cards,
+    users: [],
     page: 1,
     query: "",
     isLoading: false,
@@ -43,7 +43,7 @@ export class App extends Component {
       prevState.page !== this.state.page ||
       prevState.query !== this.state.query
     ) {
-      cards(this.state.query, this.state.page).then((users) => {
+      fetchUsers(this.state.query, this.state.page).then((users) => {
         this.setState((prevState) => ({
           users: [...prevState.users, ...users],
         }));
