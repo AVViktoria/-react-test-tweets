@@ -1,6 +1,5 @@
 // import PropTypes from 'prop-types';
-//   components
-import { Button } from "../Button/Button";
+
 //    styled-components
 import {
   CardContainer,
@@ -13,14 +12,19 @@ import {
   ImgAvatar,
   UserInfo,
   UserText,
+  Button
 } from "../UserCard/UserCard.styled";
 
 //    images
 import logo from "../../images/logo.svg";
 import headerDecor from "../../images/headerDecor.png";
-// import avatar from "../../images/avatar.svg";
 
-export const UserCard = ({ user, onClick }) => {
+
+
+export const UserCard = ({user, onClick, btnClick}) => {
+ 
+   
+
   return (
     <>
       <CardContainer>
@@ -36,9 +40,12 @@ export const UserCard = ({ user, onClick }) => {
           </CardAvatar>
           <UserInfo>
             <UserText> { user.tweets} TWEETS</UserText>
-            <UserText>{ user.followers} FOLLOWERS</UserText>
+            <UserText> {Intl.NumberFormat("en-US").format(user.followers)} FOLLOWERS</UserText>
+        
           </UserInfo>
-          <Button user={user} onClick={onClick} />
+          <Button onClick={() => onClick(user.id)} isFollow={user.isFollow}>
+        {user.isFollow ? "Following" : "Follow"}
+      </Button>
         </CardMain>
       </CardContainer>
     </>

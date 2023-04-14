@@ -1,6 +1,6 @@
 import { React, Component } from "react";
 // import cards from "./data/users.json";
-import fetchUsers from "./services/user-api";
+// import fetchUsers from "./services/user-api";
 import { UserList } from "./components/UserList/UserList.jsx";
 import { Loader } from "./components/Loader/Loader.jsx";
 import { LoadMoreBtn } from "./components/LoadMoreBtn/LoadMoreBtn.jsx";
@@ -38,23 +38,24 @@ export class App extends Component {
   //     });
   //   }
   // };
-  componentDidUpdate(_, prevState) {
-    if (
-      prevState.page !== this.state.page ||
-      prevState.query !== this.state.query
-    ) {
-      fetchUsers(this.state.query, this.state.page).then((users) => {
-        this.setState((prevState) => ({
-          users: [...prevState.users, ...users],
-        }));
-      });
-    }
-  }
+  // componentDidUpdate(_, prevState) {
+  //   if (
+  //     prevState.page !== this.state.page ||
+  //     prevState.query !== this.state.query
+  //   ) {
+  //     fetchUsers(this.state.query, this.state.page).then((users) => {
+  //       this.setState((prevState) => ({
+  //         users: [...prevState.users, ...users],
+  //       }));
+  //     });
+  //   }
+  // }
+
   render() {
     const { users, isLoading } = this.state;
     return (
       <div>
-        {users.length >= 1 && <UserList users={users} />}
+        <UserList users={users} />
         {users.length >= 12 && (
           <LoadMoreBtn onClickFn={this.handleLoadMore} isLoading={isLoading} />
         )}
