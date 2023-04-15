@@ -1,4 +1,6 @@
 import { useState, useEffect } from "react";
+import PropTypes from 'prop-types';
+
 
 import { List } from "./UserList.styled";
 import { UserCard } from "../UserCard/UserCard";
@@ -36,4 +38,12 @@ const [users, setUsers] = useState(
       })}
     </List>
   );
+};
+UserList.prototype = {
+  user: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      followers: PropTypes.number,
+    })
+  ).isRequired,
 };

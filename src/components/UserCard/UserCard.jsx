@@ -1,4 +1,4 @@
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 //    styled-components
 import {
@@ -19,12 +19,7 @@ import {
 import logo from "../../images/logo.svg";
 import headerDecor from "../../images/headerDecor.png";
 
-
-
-export const UserCard = ({user, onClick, btnClick}) => {
- 
-   
-
+export const UserCard = ({user, onClick}) => {
   return (
     <>
       <CardContainer>
@@ -50,4 +45,16 @@ export const UserCard = ({user, onClick, btnClick}) => {
       </CardContainer>
     </>
   );
+};
+
+
+UserCard.prototype = {
+  user: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      avatar: PropTypes.string,
+      tweets: PropTypes.number,
+      followers: PropTypes.number,
+    })
+  ).isRequired,
 };
