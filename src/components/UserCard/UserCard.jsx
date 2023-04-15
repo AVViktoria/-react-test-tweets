@@ -57,4 +57,5 @@ UserCard.prototype = {
       followers: PropTypes.number,
     })
   ).isRequired,
+   openClick: PropTypes.func.isRequired,
 };
