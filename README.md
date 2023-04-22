@@ -13,9 +13,8 @@ This application with page of tweets cards.
 - react
 - react-router-dom
 - styled-components
-  <!-- - styled-emotions -->
-  <!-- - axios
-- local-storage -->
+  <!-- - styled-emotions
+  <!-- - axios local-storage -->
 
 ## It looks like this
 
