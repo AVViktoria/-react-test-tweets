@@ -1,6 +1,6 @@
 # Test Project "TWEETS"
 
-## [Look this project here](https://avviktoria.github.io/react-test-tweets/).
+## [Look this project here](https://avviktoria.github.io/react-test-tweets/)
 
 ## Description
 
@@ -16,3 +16,9 @@ This application with page of tweets cards.
   <!-- - styled-emotions -->
   <!-- - axios
 - local-storage -->
+
+## It looks like this
+
+<div align="center">
+<image src="./src/images/readme-cards.png" alt="screen" align='center'>
+</div>
