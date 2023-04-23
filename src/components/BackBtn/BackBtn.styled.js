@@ -1,11 +1,12 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
-export const BackLink = styled.button`
+export const BackLink = styled(Link)`
   display: block;
   margin-right: auto;
   margin-left: auto;
   margin-bottom: 20px;
-  min-width: 196px;
+  max-width: 50px;
   padding: 12px 40px;
   font-family: "Montserrat";
   font-style: normal;
