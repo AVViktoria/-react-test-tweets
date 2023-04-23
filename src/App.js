@@ -1,23 +1,42 @@
-import { React, Component } from "react";
-import { UserList } from "./components/UserList/UserList.jsx";
+import { Route, Routes, Navigate } from "react-router-dom";
+import { SharedLayout } from "./components/SharedLayout/SharedLayout";
+import Home from "./pages/Home";
 
-export class App extends Component {
-  state = {
-    users: [],
-    page: 1,
-    query: "",
-    isLoading: false,
-  };
+export const App = () => {
+  return (
+    <>
+      <SharedLayout />
+      <Routes>
+        <Route path="/" index element={<Home />} />
+        <Route path="/tweets" element={<div>Collection page</div>} />
+        <Route path="*" element={<Navigate to="/" />} />
+      </Routes>
+    </>
+  );
+};
 
-  handleLoadMore = () => {
-    this.setState((prevState) => ({ page: prevState.page + 1 }));
-  };
+// import { React, Component } from "react";
+// // import { GlobalStyle } from "./styles/GlobalStyles";
+// import { UserList } from "./components/UserList/UserList.jsx";
 
-  render() {
-    const { users } = this.state;
-    return <div>{users && <UserList users={users} />}</div>;
-  }
-}
+// export class App extends Component {
+//   state = {
+//     users: [],
+//     page: 1,
+//     query: "",
+//     isLoading: false,
+//   };
+
+//   handleLoadMore = () => {
+//     this.setState((prevState) => ({ page: prevState.page + 1 }));
+//   };
+
+//   render() {
+//     const { users } = this.state;
+//     return <div>{users && <UserList users={users} />}</div>;
+//     // <GlobalStyle />;
+//   }
+// }
 
 //*   doesn't work, have some mistake, leave for future
 
