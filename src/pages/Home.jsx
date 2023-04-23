@@ -2,7 +2,7 @@ import React from 'react';
 import { Container } from '../components/SharedLayout/SharedLayout.styled';
 import styled from "styled-components";
 
-export const  Home = ()=> {
+const  Home = ()=> {
   return (
     <Container>
       <Caption>Hello friends!</Caption>

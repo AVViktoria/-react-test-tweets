@@ -1,3 +1,4 @@
+import React, {useState, useEffect} from 'react';
 import PropTypes from 'prop-types';
 
 //    styled-components
@@ -12,14 +13,46 @@ import {
   ImgAvatar,
   UserInfo,
   UserText,
-  Button
+  // Button
 } from "../UserCard/UserCard.styled";
-
+import { CardBtn } from '../CardBtn/CardBtn';
+import {updateFollowers} from "../../services/API"
 //    images
 import logo from "../../images/logo.svg";
 import headerDecor from "../../images/headerDecor.png";
 
-export const UserCard = ({user, onClick}) => {
+export const UserCard = ({tweets, id, followers, avatar}) => {
+  const [isFollow, setIsFollow] = useState(false);
+  const [followCount, setFollowCount] = useState(followers);
+
+ useEffect(() => {
+    const following = localStorage.getItem(`following_${id}`);
+    if (following !== null) {
+      setIsFollow(following === 'true');
+    }
+  }, [id]);
+
+  // const onFollowBtnClick = () => {
+  //   setIsFollow(!isFollow);
+  //   const newFollowerCount = isFollow ?
+  //     setFollowCount((prevCount) => prevCount - 1)
+  //     : setFollowCount((prevCount) => prevCount + 1);
+    
+  //   await updateFollower(id, newFollowerCount);
+  //   setFollowCount(newFollowerCount);
+  //   localStorage.setItem(`following_${id}`, !isFollow);
+  // };
+  const onFollowBtnClick = async () => {
+    setIsFollow(!isFollow);
+    const newFollowerCount = isFollow
+      ? followCount - 1
+      : followCount + 1;
+    await updateFollowers(id, newFollowerCount);
+    setFollowCount(newFollowerCount);
+    localStorage.setItem(`following_${id}`, !isFollow);
+  };
+
+
   return (
     <>
       <CardContainer>
@@ -31,16 +64,14 @@ export const UserCard = ({user, onClick}) => {
         </CardHeader>
         <CardMain>
           <CardAvatar>
-            <ImgAvatar src={user.avatar} alt="avatar image" />
+            <ImgAvatar src={avatar} alt="avatar image" />
           </CardAvatar>
           <UserInfo>
-            <UserText> { user.tweets} TWEETS</UserText>
-            <UserText> {Intl.NumberFormat("en-US").format(user.followers)} FOLLOWERS</UserText>
-        
+            <UserText> { tweets} TWEETS</UserText>
+            <UserText>    {Intl.NumberFormat("en-US").format(followCount)} FOLLOWERS</UserText>
+     {/* {followCount.toLocaleString('en-US')} */}
           </UserInfo>
-          <Button onClick={() => onClick(user.id)} isFollow={user.isFollow}>
-        {user.isFollow ? "Following" : "Follow"}
-      </Button>
+          <CardBtn text={isFollow ? "Following" :"Follow"} onClick={onFollowBtnClick} isFollow={isFollow}></CardBtn>
         </CardMain>
       </CardContainer>
     </>

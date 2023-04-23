@@ -10,8 +10,7 @@ export const fetchUsers = async (currentPage) => {
     const response = await axios.get(
       `${BASE_URL}tweets?limit=${LIMIT_CARDS}&page=${currentPage}`
     );
-    console.log(response.data);
-    // return response.data;
+    return response;
   } catch (error) {
     console.error("Error fetching users:", error.message);
   }

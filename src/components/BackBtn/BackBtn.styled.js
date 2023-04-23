@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const BackBtn = styled.button`
+export const BackLink = styled.button`
   display: block;
   margin-right: auto;
   margin-left: auto;

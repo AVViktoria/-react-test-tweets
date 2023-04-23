@@ -1,6 +1,7 @@
 import { Route, Routes, Navigate } from "react-router-dom";
 import { SharedLayout } from "./components/SharedLayout/SharedLayout";
 import Home from "./pages/Home";
+import Tweets from "./pages/Tweets";
 
 export const App = () => {
   return (
@@ -8,8 +9,8 @@ export const App = () => {
       <SharedLayout />
       <Routes>
         <Route path="/" index element={<Home />} />
-        <Route path="/tweets" element={<div>Collection page</div>} />
-        <Route path="*" element={<Navigate to="/" />} />
+        <Route path="/tweets" element={<Tweets />} />
+        <Route path="*" element={<Navigate to={"/"} />} />
       </Routes>
     </>
   );

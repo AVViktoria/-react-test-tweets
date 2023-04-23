@@ -1,44 +1,26 @@
-import { useState, useEffect } from "react";
-import PropTypes from 'prop-types';
-
-
+import PropTypes from "prop-types";
 import { List } from "./UserList.styled";
 import { UserCard } from "../UserCard/UserCard";
-import data from '../../data/users.json';
-
-export const UserList = () => {
-
-const [users, setUsers] = useState(
-    () => JSON.parse(localStorage.getItem("users")) ?? data
-  );
-
-  useEffect(() => {
-    localStorage.setItem("users", JSON.stringify(users));
-  }, [users]);
-
-  const handleButton = (id) => {
-    setUsers((prevUsers) =>
-      prevUsers.map((user) => {
-        if (user.id === id) {
-          return {
-            ...user,
-            isFollow: user.isFollow ? false : true,
-            followers: user.isFollow ? user.followers - 1 : user.followers + 1,
-          };
-        }
-        return user;
-      })
-    );
-  };
-
+// import data from '../../data/users.json';
+export const UserList = ({ users }) => {
   return (
-    <List>
-      {users.map((user) => {
-        return <UserCard key={user.id} user={user} onClick={handleButton}   />;
-      })}
-    </List>
+    <>
+      <List>
+        {users.map(({ user, tweets, id, followers, avatar }) => (
+          <UserCard
+            key={id}
+            id={id}
+            user={user}
+            tweets={tweets}
+            followers={followers}
+            avatar={avatar}
+          />
+        ))}
+      </List>
+    </>
   );
 };
+
 UserList.prototype = {
   user: PropTypes.arrayOf(
     PropTypes.shape({
