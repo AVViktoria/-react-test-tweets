@@ -16,6 +16,17 @@ export const fetchUsers = async (currentPage) => {
   }
 };
 
+// export const updateFollowers = async (userId, newFollowers) => {
+//   try {
+//     const { data } = await axios.put(`/tweets/${userId}`, {
+//       followers: newFollowers,
+//     });
+
+//     return data;
+//   } catch (error) {
+//     console.log(error.message);
+//   }
+// };
 export const updateFollowers = async (userId, newFollowers) => {
   try {
     await axios.put(`/${userId}`, {

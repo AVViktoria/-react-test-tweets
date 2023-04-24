@@ -13,7 +13,6 @@ import {
   ImgAvatar,
   UserInfo,
   UserText,
-  // Button
 } from "../UserCard/UserCard.styled";
 import { CardBtn } from '../CardBtn/CardBtn';
 import {updateFollowers} from "../../services/API"
